@@ -1,0 +1,53 @@
+.section-mv {
+    &__inner {
+        min-height: calc(100vh - 90px);
+        display: flex;
+        align-items: center;
+    }
+    &__left {
+        flex: 10;
+        padding-right: 0;
+    }
+    &__hi {
+        text-transform: uppercase;
+        color: #5a5a5a;
+        font-size: 1.4rem;
+    }
+    &__right {
+        flex: 9;
+        padding-left: 20px;
+    }
+    &__ttl {
+        font-size: 4rem;
+        margin: 0;
+        font-weight: bold;
+    }
+    &__lead {
+        font-size: 2rem;
+        margin: 5px 0 10px 0;
+    }
+    &__img {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            object-fit: cover;
+            max-width: 100%;
+            width: 75%;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 12px;
+        .c-btn {
+            margin-right: 10px;
+        }
+    }
+
+
+    
+}

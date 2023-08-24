@@ -1,0 +1,11 @@
+.sp {
+    @include pc {
+        display: none;
+    }
+}
+
+.pc {
+    @include sp {
+        display: none;
+    }
+}

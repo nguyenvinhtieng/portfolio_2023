@@ -1,0 +1,23 @@
+@mixin pc {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin sp {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin max-screen($size) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+@mixin min-screen($size) {
+    @media (min-width: $size) {
+        @content;
+    }
+}
