@@ -1,8 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import HeaderLogo from './HeaderLogo'
 import { Canvas } from '@react-three/fiber'
 
 export default function Header() {
+  let [theme, setTheme ] = useState('light')
+  const handleChangeTheme = (e) => {
+    if(e.target.checked) {
+      document.body.classList.add('dark')
+      localStorage.setItem('theme', 'dark')
+      setTheme('dark')
+    } else {
+      document.body.classList.remove('dark')
+      localStorage.setItem('theme', 'light')
+      setTheme('light')
+    }
+  }
+
+  useEffect(() => {
+    let currentTheme = localStorage.getItem('theme')
+    if(currentTheme === 'dark') {
+      document.body.classList.add('dark')
+      setTheme('dark')
+    } else {
+      document.body.classList.remove('dark')
+      setTheme('light')
+    }
+
+  }, [])
+
+
   return (
     <header className="header">
       <div className="container">
@@ -14,14 +40,14 @@ export default function Header() {
           </Canvas>
           </h1>
           <nav className="header__nav">
-            <a href="#" className="header__link is-active">Home</a>
-            <a href="#" className="header__link">Timeline</a>
-            <a href="#" className="header__link">Projects</a>
-            <a href="#" className="header__link">Skills</a>
+            <a href="#top" className="header__link is-active" aria-hidden="true">Home</a>
+            <a href="#section-background" className="header__link" aria-hidden="true">Backgrounds</a>
+            <a href="#section-skill" className="header__link" aria-hidden="true">Skills</a>
+            <a href="#section-project" className="header__link" aria-hidden="true">Projects</a>
           </nav>
           <div className="header__setting">
             <div className="header__theme">
-              <input type="checkbox" id="toggle_checkbox" className='header__theme--input'/>
+              <input type="checkbox" id="toggle_checkbox" className='header__theme--input' onChange={handleChangeTheme} checked={theme === "dark"}/>
               <label htmlFor="toggle_checkbox" className='header__theme--label'>
                 <div id="star" className='header__theme--star'>
                   <div id="star-1" className='header__theme--star-1 star'>★</div>

@@ -1,6 +1,57 @@
 :root {
+    
+    // : linear-gradient(90deg,#3a87f3,#4ad0c2);
+}
+body {
+    // COMMON
     --primary-color: #3a87f3;
+    --background-color: #fff;
+    --text-color: #3d3f47;
+    --shadow-01: rgba(0, 0, 0, 0.3) 4px 4px 20px;
+    --shadow-02: rgba(32, 83, 194, 0.6) 4px 4px 20px;
+
+    // HEADER
     --header-link-color: #808080;
     --header-link-active-color: #393939;
-    // : linear-gradient(90deg,#3a87f3,#4ad0c2);
+    --header-background: rgba(255, 255, 255, 0.2);
+
+    // EXPERIENCE
+    --background-experience: transparent;
+    --background-hover-experience: rgba(58, 135, 243, 0.05);
+    --text-color-experience: #6f6f7f;
+
+    // PROJECT
+    --background-project: transparent;
+    --background-hover-project: rgba(58, 135, 243, 0.05);
+
+    // FOOTER
+    --background-footer: #111827;
+    --text-footer-color: #fff;
+}
+
+body.dark {
+    // COMMON
+    --primary-color: #3a87f3;
+    --background-color: #111827;
+    --text-color: #fff;
+    --shadow-01: rgba(255, 255, 255, 0.3) 4px 4px 20px;
+    --shadow-02: rgba(32, 83, 194, 0.6) 4px 4px 20px;
+
+    // HEADER
+    --header-link-color: #969494;
+    --header-link-active-color: #ffffff;
+    --header-background: rgba(#111827, 0.2);
+
+    // EXPERIENCE
+    --background-experience: rgba(58, 135, 243, 0.05);
+    --background-hover-experience: rgba(58, 135, 243, 0.1);
+    --text-color-experience: #c0c0c3;
+
+    // PROJECT
+    --background-project: rgba(58, 135, 243, 0.05);
+    --background-hover-project: rgba(58, 135, 243, 0.1);
+    
+    // FOOTER
+    --background-footer: #101623;
+    --text-footer-color: #fff;
 }

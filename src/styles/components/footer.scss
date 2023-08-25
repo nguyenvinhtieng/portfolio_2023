@@ -1,0 +1,10 @@
+.footer {
+    background-color: var(--background-footer);
+    padding: 30px;
+    &__txt {
+        text-align: center;
+        .c-txt {
+            color: var(--text-footer-color);
+        }
+    }
+}
