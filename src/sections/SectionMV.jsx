@@ -12,14 +12,14 @@ export default function SectionMV() {
                 <h2 className='section-mv__lead'>{t("HOME.TEXT_1")} <a href="" className="c-link">{t("HOME.TEXT_2")}</a>  {t("HOME.TEXT_3")}<a href="https://goo.gl/maps/6ZQEUhHLXKZ4JBMN6" target='_blank' className="c-link"> {t("HOME.TEXT_4")}</a></h2>
                 <h3 className="section-mv__info">{t("HOME.CONTACT")} 👇</h3>
                 <div className="section-mv__buttons">
-                    <a href="#" className='c-btn c-btn-01'>
+                    <a href="https://github.com/nguyenvinhtieng" target='_blank' className='c-btn c-btn-01'>
                         <span className="hover"></span>
                         <span className="label">
                             <span className="icon"><img src="/images/ico_github.svg"/></span>
                             <span className="txt">Github</span>
                         </span>
                     </a>
-                    <a href="#" className='c-btn c-btn-02'>
+                    <a href="https://www.facebook.com/nvinhtieng/" target="_blank" className='c-btn c-btn-02'>
                         <span className="hover"></span>
                         <span className="label">
                             <span className="icon"><img src="/images/ico_facebook.svg"/></span>
