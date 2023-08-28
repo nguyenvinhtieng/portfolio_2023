@@ -1,16 +1,17 @@
 import React from 'react'
-
+import { useTranslation } from "react-i18next";
 export default function SectionBackground() {
+  const { t } = useTranslation();
   return (
     <section className="section-background" id="section-background">
         <div className="section-background__inner">
             <div className="section-background__ttl">
-                <h3 className="c-ttl-01 c-ttl-gradient-01">Background</h3>
+                <h3 className="c-ttl-01 c-ttl-gradient-01">{t("BACKGROUND.TITLE")}</h3>
             </div>
             <div className="section-background__text">
-                <p className="c-txt">I began my career as a frontend developer in <b>June 2022</b>, and after that, I graduated from <a href="" className="c-link">Ton Duc Thang University</a> in <b>April 2023</b>. </p>
-                <p className="c-txt">You know when you visit a website, and it looks amazing and works really smoothly? That's what I love doing. I'm passionate about making the internet a more beautiful and user-friendly place. Whether it's designing a webpage that catches your eye or creating an app that's easy to use, I enjoy bringing ideas to life in the digital world.</p>
-                <p className="c-txt">So, I invite you to explore <b>My portfolio website</b>, where you can see the <b>projects</b> I've worked on and get a taste of what I can do. It's where I showcase my creativity and <b>technical skills</b>, all aimed at making your online experience more enjoyable.</p>
+                <p className="c-txt">{t("BACKGROUND.TEXT_01")}<b>{t("BACKGROUND.TEXT_02")}</b>{t("BACKGROUND.TEXT_03")} <a href="https://tdtu.edu.vn/" target='_blank' className="c-link">{t("BACKGROUND.TEXT_04")}</a> {t("BACKGROUND.TEXT_05")} <b>{t("BACKGROUND.TEXT_06")}</b>. </p>
+                <p className="c-txt">{t("BACKGROUND.TEXT_07")}</p>
+                <p className="c-txt">{t("BACKGROUND.TEXT_08")} <a href="/" className='c-link'>{t("BACKGROUND.TEXT_09")} </a>{t("BACKGROUND.TEXT_10")} <a data-to="section-project" className='c-link js-anchor'>{t("BACKGROUND.TEXT_11")}</a> {t("BACKGROUND.TEXT_12")} <a className='c-link js-anchor' data-to="section-skill">{t("BACKGROUND.TEXT_13")}</a></p>
             </div>
         </div>
     </section>

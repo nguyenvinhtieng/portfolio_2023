@@ -1,8 +1,5 @@
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import React, { useEffect, useRef } from 'react'
-
-
+import { useTranslation } from 'react-i18next'
 const skills = [
     {id: 1, name: 'HTML', img: '/images/skill/html.jpg'},
     {id: 2, name: 'CSS', img: '/images/skill/css.png'},
@@ -31,35 +28,14 @@ export default function SectionSkill() {
     let skillCol1 = skills.slice(0, skills.length/2)
     let skillCol2 = skills.slice(skills.length/2, skills.length)
     let list1Ref = useRef(null)
+    const { t } = useTranslation();
     useEffect(() => {
         if(!list1Ref.current) return
-        // infinity slideer skill
-        // gsap.registerPlugin(ScrollTrigger)
-        // let tl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: list1Ref.current,
-        //         start: 'top center',
-        //         end: 'bottom center',
-        //         scrub: 1,
-        //         // markers: true,
-        //         pin: true,
-        //         // pinSpacing: false,
-        //         // anticipatePin: 1
-        //     }
-        // })
-        // tl.to(list1Ref.current, {
-        //     x: -100,
-        //     duration: 10,
-        //     ease: 'none',
-        //     repeat: -1,
-        //     // yoyo: true
-        // })
-
     }, [])
   return (
     <div className="section-skill" id="section-skill">
       <div className="section-skill__inner">
-            <h2 className="c-ttl-01 c-ttl-gradient-01">Skills</h2>
+            <h2 className="c-ttl-01 c-ttl-gradient-01">{t("SKILL.TITLE")}</h2>
             <div className="section-skill__list-wrap">
                 <ul className="section-skill__list" ref={list1Ref}>
                     {skillCol1.length > 0 && skillCol1.map((skill, index) => (

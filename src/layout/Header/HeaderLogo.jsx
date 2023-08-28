@@ -18,7 +18,7 @@ export default function HeaderLogo() {
   return (
     <Center>
       <mesh ref={boxRef}>
-        <boxBufferGeometry args={[0.8, 0.8, 0.8]} />
+        <boxGeometry args={[0.8, 0.8, 0.8]} />
         <meshNormalMaterial />
       </mesh>  
     </Center>

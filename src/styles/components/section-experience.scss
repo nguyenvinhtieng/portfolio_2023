@@ -60,6 +60,7 @@
         font-size: 2.4rem;
         transition: all 0.2s linear;
         color: var(--text-color);
+        font-weight: 500;
     }
     &__logo {
         display: inline-block;
@@ -67,6 +68,14 @@
         top: 20px;
         right: 20px;
         max-width: 35px;
+        &.LAICHI {
+            max-width: 35px;
+        }
+        &.VAND  {
+            max-width: 200px;
+            background-color: black;
+            padding: 7px 10px;
+        }
         img {
             width: 100%;
         }
@@ -80,6 +89,10 @@
         color: var(--text-color-experience);
         font-size: 1.5rem;
         margin-bottom: 10px;
+        p {
+            text-indent: -1em;
+            padding-left: 1em;
+        }
     }
 
 }

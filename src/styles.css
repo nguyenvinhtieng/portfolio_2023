@@ -86,6 +86,9 @@ main {
 body {
   font-family: "Poppins", sans-serif;
 }
+body.vi {
+  font-family: "Montserrat", sans-serif;
+}
 
 * {
   scroll-behavior: smooth;
@@ -100,6 +103,10 @@ ul {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.js-anchor {
+  cursor: pointer;
 }
 
 .c-ext-link {
@@ -293,9 +300,26 @@ a.c-link {
 .header__link {
   margin: 0 10px;
   color: var(--header-link-color);
+  cursor: pointer;
+  position: relative;
+}
+.header__link::before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--primary-color);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  transition: all 0.2s linear;
 }
 .header__link.is-active {
   color: var(--header-link-active-color);
+}
+.header__link.is-active::before {
+  width: 100%;
 }
 .header__link:hover {
   color: var(--header-link-active-color);
@@ -428,6 +452,7 @@ a.c-link {
   position: relative;
   color: var(--header-link-color);
   transition: all 0.2s linear;
+  cursor: pointer;
 }
 .header__lang--item:hover {
   color: var(--header-link-active-color);
@@ -663,6 +688,7 @@ a.c-link {
   font-size: 2.4rem;
   transition: all 0.2s linear;
   color: var(--text-color);
+  font-weight: 500;
 }
 .section-experience__logo {
   display: inline-block;
@@ -670,6 +696,14 @@ a.c-link {
   top: 20px;
   right: 20px;
   max-width: 35px;
+}
+.section-experience__logo.LAICHI {
+  max-width: 35px;
+}
+.section-experience__logo.VAND {
+  max-width: 200px;
+  background-color: black;
+  padding: 7px 10px;
 }
 .section-experience__logo img {
   width: 100%;
@@ -683,6 +717,10 @@ a.c-link {
   color: var(--text-color-experience);
   font-size: 1.5rem;
   margin-bottom: 10px;
+}
+.section-experience__des p {
+  text-indent: -1em;
+  padding-left: 1em;
 }
 
 .section-skill {
@@ -754,6 +792,7 @@ a.c-link {
   display: flex;
   padding: 20px;
   transition: all 0.2s linear;
+  border-radius: 10px;
   background-color: var(--background-project);
 }
 @media (max-width: 767px) {
@@ -815,6 +854,9 @@ a.c-link {
   }
 }
 
+.section-certificate {
+  padding: 90px 0 30px 0;
+}
 .mouse-hover {
   position: fixed;
   top: 0;

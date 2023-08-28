@@ -2,8 +2,24 @@ import React, { useEffect, useState } from 'react'
 import HeaderLogo from './HeaderLogo'
 import { Canvas } from '@react-three/fiber'
 
+import { useTranslation, Trans } from "react-i18next";
+
 export default function Header() {
+  const [currentLanguage, setCurrentLanguage] = useState("en")
   let [theme, setTheme ] = useState('light')
+  const { t, i18n } = useTranslation();
+  
+  const handleChangeLanguage = lng => {
+    localStorage.setItem('language', lng)
+    setCurrentLanguage(lng)
+    i18n.changeLanguage(lng);
+    if(lng === 'vi') {
+      document.body.classList.add('vi')
+    } else {
+      document.body.classList.remove('vi')
+    }
+  };
+  
   const handleChangeTheme = (e) => {
     if(e.target.checked) {
       document.body.classList.add('dark')
@@ -16,18 +32,46 @@ export default function Header() {
     }
   }
 
+  // GET GLOBAL SETTING
   useEffect(() => {
+    // THEME
     let currentTheme = localStorage.getItem('theme')
     if(currentTheme === 'dark') {
-      document.body.classList.add('dark')
       setTheme('dark')
     } else {
-      document.body.classList.remove('dark')
       setTheme('light')
     }
 
+    // LANGUAGE
+    let currentLanguage = localStorage.getItem('language')
+    if(currentLanguage === 'vi') {
+      setCurrentLanguage('vi')
+    } else {
+      setCurrentLanguage('en')
+    }
   }, [])
 
+  useEffect(() => {
+    const scrollingEvent = window.addEventListener('scroll', function () {
+      const scrollPosition = window.scrollY
+      const anchorLinks = document.querySelectorAll('.header__link')
+      anchorLinks.forEach(link => {
+        let dataTo = link.getAttribute('data-to')
+        let offsetTop = document.querySelector(`#${dataTo}`).offsetTop
+        if (scrollPosition >= offsetTop) {
+          anchorLinks.forEach(link => {
+            link.classList.remove('is-active')
+          })
+          link.classList.add('is-active')
+        } else {
+          link.classList.remove('is-active')
+        }
+      })
+    })
+    return () => {
+      window.removeEventListener('scroll', scrollingEvent)
+    }
+  }, [])
 
   return (
     <header className="header">
@@ -40,10 +84,10 @@ export default function Header() {
           </Canvas>
           </h1>
           <nav className="header__nav">
-            <a href="#top" className="header__link is-active" aria-hidden="true">Home</a>
-            <a href="#section-background" className="header__link" aria-hidden="true">Backgrounds</a>
-            <a href="#section-skill" className="header__link" aria-hidden="true">Skills</a>
-            <a href="#section-project" className="header__link" aria-hidden="true">Projects</a>
+            <a className="header__link js-anchor" data-to="section-mv">{t("HEADER.HOME")}</a>
+            <a className="header__link js-anchor" data-to="section-background">{t("HEADER.BACKGROUND")}</a>
+            <a className="header__link js-anchor" data-to="section-skill">{t("HEADER.SKILLS")}</a>
+            <a className="header__link js-anchor" data-to="section-project">{t("HEADER.PROJECT")}</a>
           </nav>
           <div className="header__setting">
             <div className="header__theme">
@@ -57,8 +101,10 @@ export default function Header() {
               </label>
             </div>
             <div className="header__lang">
-              <a href="#" className="header__lang--item is-active">EN.</a>
-              <a href="#" className="header__lang--item is-active">VN.</a>
+              <a className={`header__lang--item ${currentLanguage === 'en' ? 'is-active' : ''}`} 
+              onClick={()=>handleChangeLanguage("en")}>En.</a>
+              <a className={`header__lang--item ${currentLanguage === 'vi' ? 'is-active' : ''}`} 
+              onClick={()=>handleChangeLanguage("vi")}>Vi.</a>
             </div>
           </div>
         </div>

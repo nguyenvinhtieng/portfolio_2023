@@ -28,8 +28,25 @@
     &__link {
         margin: 0 10px;
         color: var(--header-link-color);
+        cursor: pointer;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            transition: all 0.2s linear;
+        }
         &.is-active {
             color: var(--header-link-active-color);
+            &::before {
+                width: 100%;
+            }
         }
         &:hover {
             color: var(--header-link-active-color);
@@ -155,6 +172,7 @@
             position: relative;
             color: var(--header-link-color);
             transition: all 0.2s linear;
+            cursor: pointer;
             &:hover {
                 color: var(--header-link-active-color);
             }
